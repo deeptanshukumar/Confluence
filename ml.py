@@ -6,6 +6,8 @@ import logging
 import os
 import spotipy
 
+
+
 load_dotenv()
 logging.basicConfig(level=logging.DEBUG)
 
