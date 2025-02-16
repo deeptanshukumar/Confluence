@@ -109,3 +109,5 @@ Confluence/
 
 Enjoy your playlist creation experience with **Confluence**! 🎵✨
 
+Credits to - Sai Rishi Gangarapu , Ponakala-Yathish , Deeptanshu Kumar , Sharath Doddihal
+
