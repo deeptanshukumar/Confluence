@@ -1,37 +1,100 @@
 # Confluence
-This is a project that makes playlists via an interactive interface
 
+**Confluence** is an interactive web application that generates playlists using OpenAI and Spotify API integration.
 
-<h1>To perform this project -</h1> 
+## Prerequisites
 
-<h2>Setting up the framework </h2>
+Ensure you have the following installed:
+- Python (3.x recommended)
+- Virtual Environment (`venv`)
+- Flask and other dependencies (listed below)
 
-1) go to the required directory and create a virtual env by python -m venv venv
-2) Then cd venv , Scripts/activate
-3) Run pip install flask
-4) Go to the URL "http://127.0.0.1:5000/" To check if the server is up and running
+## Project Setup
 
-<h2>Setting up of the backend(ml.py) and frontend(templates)</h2>
+### 1. Setting Up the Virtual Environment
+1. Navigate to your desired project directory:
+   ```sh
+   cd path/to/project
+   ```
+2. Create a virtual environment:
+   ```sh
+   python -m venv venv
+   ```
+3. Activate the virtual environment:
+   - **Windows:**
+     ```sh
+     venv\Scripts\activate
+     ```
+   - **Mac/Linux:**
+     ```sh
+     source venv/bin/activate
+     ```
+4. Install Flask:
+   ```sh
+   pip install flask
+   ```
+5. Run the Flask server to verify installation:
+   ```sh
+   python ml.py
+   ```
+6. Open your browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to check if the server is running.
 
-<h3>Dependenices installation</h3>
+## 2. Backend & Frontend Setup
 
-1)Redirect to the venv <br/>
-2)Run "pip install flask openai spotipy dotenv oAuth logging" after activation of the workspace to install all the required dependencies <br/>
+### Installing Dependencies
+Ensure the virtual environment is activated, then install the required dependencies:
+```sh
+pip install flask openai spotipy python-dotenv requests logging
+```
 
-<h3>.env file</h3>
-1) Create a spotify dev account , then user_profile -> setting <br/>
-2) Copy paste your client id and secret into the respective fields<br/>
-3) Go to aiml.com and make an account<br/>
-4) Go to Get API -> generate apikey and paste this in your .env file<br/>
-5) In the dev account make sure to put your redirecting URL "http://localhost:5000/callback" <br/>
+### Configuring the `.env` File
+1. **Spotify API Setup:**
+   - Create a [Spotify Developer Account](https://developer.spotify.com/)
+   - Navigate to **Dashboard → Your App → Settings**
+   - Copy your `Client ID` and `Client Secret`
+   - Set up a redirect URI as `http://localhost:5000/callback`
 
-Follow this exact file tree while performing tasks on the files
+2. **OpenAI API Setup:**
+   - Sign up at [OpenAI](https://openai.com/)
+   - Generate an API key from **API Settings**
+   - Add the keys to your `.env` file:
+     ```ini
+     SPOTIPY_CLIENT_ID=your_spotify_client_id
+     SPOTIPY_CLIENT_SECRET=your_spotify_client_secret
+     SPOTIPY_REDIRECT_URI=http://localhost:5000/callback
+     OPENAI_API_KEY=your_openai_api_key
+     ```
 
-<img width="252" alt="Screenshot 2025-02-16 134003" src="https://github.com/user-attachments/assets/cf859752-98c8-4988-a2b7-a1a97f8ff7a7" />
+## 3. Project Structure
+Follow this directory structure while working on the project:
+```
+Confluence/
+│-- venv/
+│-- static/           # Frontend assets (CSS, JS, images)
+│-- templates/        # HTML templates
+│-- ml.py             # Main Flask backend
+│-- .env              # Environment variables
+│-- requirements.txt  # List of dependencies
+│-- README.md         # Project documentation
+```
 
-<b>(Note - All this must be done only while the venv is activated) </b>
+## 4. Running the Application
+1. Ensure the virtual environment is activated.
+2. Run the application:
+   ```sh
+   python ml.py
+   ```
+3. Copy the URL displayed in the terminal (`http://127.0.0.1:5000/`).
+4. Open the URL in your browser and start using **Confluence**!
 
-<h2>Running the application</h2>
-1) In the command prompt type in python ml.py <br/>
-2) Copy the URL shown (It will be this http://127.0.0.1:5000/) </br>
-3) Now enjoy the app /n
+---
+
+### Notes
+- Always activate the virtual environment before running the app.
+- If you install new dependencies, update `requirements.txt` using:
+  ```sh
+  pip freeze > requirements.txt
+  ```
+
+Enjoy your playlist creation experience with **Confluence**! 🎵✨
+
