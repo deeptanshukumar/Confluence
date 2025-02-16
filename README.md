@@ -1,6 +1,6 @@
-# Confluence
+# SPOTIFAI
 
-**Confluence** is an interactive web application that generates playlists using OpenAI and Spotify API integration.
+**SPOTIFAI** is an interactive web application that generates playlists using OpenAI and Spotify API integration.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ pip install flask openai spotipy python-dotenv requests logging
 Follow this directory structure while working on the project:
 
 ```
-Confluence/
+SPOTIFAI/
 │-- venv/
 │-- static/           # Frontend assets (CSS, JS, images)
 │-- templates/        # HTML templates
@@ -95,7 +95,7 @@ Confluence/
    python ml.py
    ```
 3. Copy the URL displayed in the terminal (`http://127.0.0.1:5000/`).
-4. Open the URL in your browser and start using **Confluence**!
+4. Open the URL in your browser and start using **SPOTIFAI**!
 
 ---
 
@@ -107,7 +107,14 @@ Confluence/
   pip freeze > requirements.txt
   ```
 
-Enjoy your playlist creation experience with **Confluence**! 🎵✨
+Enjoy your playlist creation experience with **SPOTIFAI**! 🎵✨
 
-Credits to - Sai Rishi Gangarapu , Ponakala-Yathish , Deeptanshu Kumar , Sharath Doddihal
+## Credits
+
+Contributors:
+
+- Sai Rishi Gangarapu
+- Ponakala Yathish
+- Deeptanshu Kumar
+- Sharath Doddihal
 
