@@ -113,8 +113,8 @@ Enjoy your playlist creation experience with **SPOTIFAI**! 🎵✨
 
 Contributors:
 
-- Sai Rishi Gangarapu
-- Ponakala Yathish
-- Deeptanshu Kumar
-- Sharath Doddihal
+- [Sai Rishi Gangarapu](https://github.com/sairishigangarapu)
+- [Ponakala Yathish](https://github.com/Ponakala-Yathish)
+- [Deeptanshu Kumar](https://github.com/deeptanshukumar)
+- [Sharath Doddihal](https://github.com/venkamita)
 
