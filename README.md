@@ -1,6 +1,6 @@
-# SPOTIFAI
+# SpotifAI
 
-**SPOTIFAI** is an interactive web application that generates playlists using OpenAI and Spotify API integration.
+**SpotifAI** is an interactive web application that generates playlists using OpenAI and Spotify API integration.
 
 ## Prerequisites
 
