@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key')
 SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
 SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-SPOTIFY_REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI', 'http://localhost:5000/callback')
+SPOTIFY_REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI', 'your_redircting_url)
 
 AI_BASE_URL = os.getenv('AI_BASE_URL', 'https://api.aimlapi.com')
 AI_API_KEY = os.getenv('AI_API_KEY')
@@ -78,7 +78,7 @@ def logout():
     session.clear()
     
     spotify_logout_url = 'https://accounts.spotify.com/en/logout'
-    app_login_url = 'http://localhost:5000/login'
+    app_login_url = 'your_redirectning_url_unitl_the_port/login'
     
     return """
     <script>
