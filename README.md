@@ -13,8 +13,17 @@ This is a project that makes playlists via an interactive interface
 
 <h2>Setting up of the backend(ml.py) and frontend(templates)</h2>
 
-1)Redirect to the venv 
-2)Run "pip install flask openai spotipy dotenv oAuth logging" after activation of the workspace to install all the required dependencies
+<h3>Dependenices installation</h3>
+1)Redirect to the venv <br/>
+2)Run "pip install flask openai spotipy dotenv oAuth logging" after activation of the workspace to install all the required dependencies <br/>
+
+<h3>.env file</h3>
+1)Create a spotify dev account , then user_profile<createapp<settings 
+2)Copy paste your client id and secret into the respective fields
+3)Go to aiml.com and make an account
+4)Go to Get API < generate apikey and paste this.env file
+5)In the dev account make sure to put your redirecting URL "http://localhost:5000/callback" 
+
 Follow this exact file tree while performing tasks on the files
 
 <img width="252" alt="Screenshot 2025-02-16 134003" src="https://github.com/user-attachments/assets/cf859752-98c8-4988-a2b7-a1a97f8ff7a7" />
