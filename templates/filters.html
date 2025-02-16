@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotifAI - Advanced Filters</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #121212, #1a1a1a);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 220px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .sidebar a {
+            color: #b3b3b3;
+            text-decoration: none;
+            display: block;
+            padding: 15px 20px;
+            margin: 8px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar a:hover {
+            color: #ffffff;
+            background: linear-gradient(45deg, #1db954, #1ed760);
+            transform: translateX(5px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto 0 260px;
+        }
+
+        .title {
+            font-size: 5em;
+            font-weight: 900;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #1db954, #1ed760);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(29, 185, 84, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(29, 185, 84, 0.8);
+            }
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(29, 185, 84, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: #1db954;
+            font-weight: 500;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .btn-generate {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #1db954, #1ed760);
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+        }
+
+        #playlist-container {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        #playlist-container:has(iframe) {
+            display: block;
+        }
+
+        .spotify-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            background: transparent;
+        }
+
+        @media (max-width: 1200px) {
+            #playlist-container {
+                position: relative;
+                width: 100%;
+                height: 600px;
+                margin-top: 30px;
+            }
+            
+            .main-content {
+                margin-right: 0;
+            }
+            
+            .spotify-embed {
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .title {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="/">Home</a>
+        <a href="/filters">Filters</a>
+        <a href="{{ profile_url }}" target="_blank">Profile</a>
+        <a href="https://open.spotify.com/collection/playlists" target="_blank">Playlists</a>
+        {% if logged_in %}
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login with Spotify</a>
+        {% endif %}
+    </div>
+
+    <div class="main-content">
+        <h1 class="title">Advanced Filters</h1>
+        <div class="form-container">
+            <form id="playlistForm">
+                <div class="form-group">
+                    <label for="mood">Mood</label>
+                    <input type="text" id="mood" name="mood" placeholder="e.g., Happy, Sad, Energetic" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="genres">Genres</label>
+                    <input type="text" id="genres" name="genres" placeholder="e.g., Pop, Rock, Jazz (comma-separated)" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="artists">Favorite Artists</label>
+                    <input type="text" id="artists" name="artists" placeholder="e.g., Taylor Swift, Ed Sheeran (comma-separated)">
+                </div>
+
+                <div class="form-group">
+                    <label for="numSongs">Number of Songs</label>
+                    <input type="number" id="numSongs" name="numSongs" min="1" max="20" value="10" required>
+                </div>
+
+                <button type="submit" class="btn-generate">Generate Playlist</button>
+            </form>
+        </div>
+        <div id="playlist-container"></div>
+    </div>
+
+    <script>
+        document.getElementById('playlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = {
+                mood: document.getElementById('mood').value,
+                genres: document.getElementById('genres').value.split(',').map(g => g.trim()),
+                artists: document.getElementById('artists').value.split(',').map(a => a.trim()),
+                numSongs: parseInt(document.getElementById('numSongs').value)
+            };
+
+            fetch('/get_playlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user_input: formData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    const container = document.getElementById('playlist-container');
+                    container.innerHTML = `<iframe src="${data.embed_url}" class="spotify-embed" allowtransparency="true" allow="encrypted-media"></iframe>`;
+                    // Scroll to the playlist
+                    container.scrollIntoView({ behavior: 'smooth' });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while generating the playlist');
+            });
+        });
+    </script>
+</body>
+</html>
