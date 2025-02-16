@@ -22,6 +22,6 @@ Follow this exact file tree while performing tasks on the files
 <b>(Note - All this must be done only while the venv is activated) </b>
 
 <h2>Running the application</h2>
-1) In the command prompt type in python ml.py 
-2) Copy the URL shown (It will be this http://127.0.0.1:5000/)
-3) Now enjoy the app
+1)In the command prompt type in python ml.py 
+2)Copy the URL shown (It will be this http://127.0.0.1:5000/)
+3)Now enjoy the app
