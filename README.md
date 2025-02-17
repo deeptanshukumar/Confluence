@@ -116,5 +116,5 @@ Contributors:
 - [Sai Rishi Gangarapu](https://github.com/sairishigangarapu)
 - [Ponakala Yathish](https://github.com/Ponakala-Yathish)
 - [Deeptanshu Kumar](https://github.com/deeptanshukumar)
-- [Sharath Doddihal](https://github.com/venkamita)
+- [Sharat Doddihal](https://github.com/venkamita)
 
